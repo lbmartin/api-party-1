@@ -21,7 +21,7 @@ class map extends Component {
     render() {
         return(
       <div className="map">
-        <img className="map-logo" src="https://goo.gl/images/JJKsmc" alt="map"/>
+        <img className="map-logo" src="https://icons.wxug.com/i/c/v4/partlycloudy.svg" alt="map"/>
         <form onSubmit={this.handleSubmit}>
           <div>
             <input type="text"
