@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
 import './github.css'
+import githubuser from './githubuser'
 
 class Github extends Component {
     state = {
@@ -16,26 +17,29 @@ class Github extends Component {
         this.props.history.push(`/github/${this.state.username}`)
 
     }
-    render() {
-        return (
-            <div className="github">
-                <img className="github-logo" src="http://www.aha.io/assets/github.7433692cabbfa132f34adb034e7909fa.png" alt="Github Logo" />
-                <form onSubmit={this.handleSubmit}>
-                    <div>
-                        <input type="text" value={this.state.username} onChange={this.handleChange}/>
-                    </div>
-                    <div>
-                        <button type="submit">Look up github user</button>
-                    </div>
-                </form>
+  render() {
+    return (
+      <div className="github">
+        <img className="github-logo" src="http://www.aha.io/assets/github.7433692cabbfa132f34adb034e7909fa.png" alt="github"/>
+        <form onSubmit={this.handleSubmit}>
+          <div>
+            <input type="text"
+              value={this.state.username}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div>
+            <button type="submit">Look up github user</button>
+          </div>
+        </form>
 
-                <Route exact path='/github' render={() => <h3>Please enter a username to search on Github</h3>} />
-                <Route path={'/github/:username'} render={({ match }) => <h3>Great Jaerb, you searched for {match.params.username}</h3>} />
-            </div>
-        )
-    }
-
-
+        <Route exact path='/github' render={() => (
+          <h3>Please enter a username to search on Github</h3> 
+        )} />
+        <Route path='/github/:username' component={githubuser} />
+      </div>
+    )
+  }
 }
 
 export default Github
