@@ -40,10 +40,11 @@ class currentmap extends Component {
 
   render() {
     const { forecast } = this.state
+    const degF = ((forecast.temp - 273.15) *1.8) +32;
     return (
       <div className="currentmap-zip">
         <h2>City Name: {forecast.city}</h2>
-        <h3>Temperature: {forecast.temp} Kelvin</h3>
+        <h3>Temperature: {degF}</h3>
         <h3>Humidity: {forecast.humidity}</h3>
       </div>
     )
