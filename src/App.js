@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Switch, Route } from 'react-router-dom'
 import logo from './logo.svg';
 import './App.css';
 
@@ -12,6 +13,9 @@ class App extends Component {
             <h1>API Party</h1>
           </div>
         </div>
+        <Switch>
+          <Route render={() => <p>To get started, click one of the links above</p>} />
+        </Switch>
       </div>
     );
   }
